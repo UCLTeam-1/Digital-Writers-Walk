@@ -1,0 +1,38 @@
+﻿<Window x:Class="WritersWalk.WPF.Views.ReflectionView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+
+        xmlns:local="clr-namespace:WritersWalk.WPF.Views"
+        mc:Ignorable="d"
+        Title="ReflectionView" Height="500" Width="800">
+    <Grid Background="#31401B">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Column="0" Grid.Row="0" Source="/Assets/logo-green.jpg" />
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Refleksionstekst" TextAlignment="Center" Background="#768C54" FontSize="25" Padding="10" Margin="0 10"/>
+            <TextBlock Text="Bedøm fra 1 - 5 hvor godt gik øvelsen?"  TextWrapping="Wrap" Background="#768C54" FontSize="18" Padding="10"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" >
+                <Button x:Name="star1" Content="☆" FontSize="54" Tag="1" MouseEnter="star_MouseEnter" MouseLeave="star_MouseLeave" Click="star_Click" Background="Transparent" BorderThickness="0" Foreground="White"/>
+                <Button x:Name="star2" Content="☆" FontSize="54" Tag="2" MouseEnter="star_MouseEnter" MouseLeave="star_MouseLeave" Click="star_Click" Background="Transparent" BorderThickness="0" Foreground="White"/>
+                <Button x:Name="star3" Content="☆" FontSize="54" Tag="3" MouseEnter="star_MouseEnter" MouseLeave="star_MouseLeave" Click="star_Click" Background="Transparent" BorderThickness="0" Foreground="White"/>
+                <Button x:Name="star4" Content="☆" FontSize="54" Tag="4" MouseEnter="star_MouseEnter" MouseLeave="star_MouseLeave" Click="star_Click" Background="Transparent" BorderThickness="0" Foreground="White"/>
+                <Button x:Name="star5" Content="☆" FontSize="54" Tag="5" MouseEnter="star_MouseEnter" MouseLeave="star_MouseLeave" Click="star_Click" Background="Transparent" BorderThickness="0" Foreground="White"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="Klar til at gå"  Margin="10" Padding="10" Background="#4E7329" MinWidth="150" Click="Button_Click"/>
+            <Button Content="Afslut"  Margin="10" Padding="10" Background="#4E7329" MinWidth="150" Click="Button_Click_1"/>
+        </StackPanel>
+    </Grid>
+</Window>

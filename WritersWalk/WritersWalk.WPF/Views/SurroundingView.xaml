@@ -1,0 +1,45 @@
+﻿<Window x:Class="WritersWalk.WPF.Views.SurroundingView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WritersWalk.WPF.Views"
+        mc:Ignorable="d"
+        Title="SurroundingView" Height="500" Width="800">
+    <Grid Background="#31401B">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Column="0" Grid.Row="0" Source="/Assets/logo-green.jpg"  Panel.ZIndex="1"/>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Label Grid.Column="1" Grid.Row="1" Width="270" Content="Vælg Omgivelser:" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Background="#768C54" FontSize="32" BorderBrush="Black" FontFamily="Montserrat"/>
+            <ListBox Background="#D9A9A9" 
+         Name="DisplaySurrounding" 
+         HorizontalAlignment="Center" 
+         VerticalAlignment="Top" 
+         ItemsSource="{Binding Surroundings}" 
+         Height="200" Width="270"
+         SelectionMode="Multiple"
+         SelectionChanged="DisplaySurrounding_HandleSelectedSurroundings">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Title}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedSurroundingsText}" 
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Top" 
+               Margin="0, 10, 0 , 0"
+               Foreground="White"/>
+        <Button Grid.Column="1" Grid.Row="2" Width="150" Height="40"  Background="#4E7329" x:Name="getAssignment" Click="getAssignment_Click" >Giv mig en skriveøvelse</Button>
+    </Grid>
+</Window>
