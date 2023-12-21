@@ -1,0 +1,81 @@
+﻿<Page x:Class="WritersWalk.WPF.Pages.AssignmentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WritersWalk.WPF.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AssignmentPage">
+    <Grid Background="#31401B">
+        <Label Content="Vælg Øvelse:" HorizontalAlignment="Left" Margin="140,49,0,0" VerticalAlignment="Top" Background="#768C54" FontSize="32" BorderBrush="Black" FontFamily="Montserrat" Width="243"/>
+
+        <ListBox Background="#D9A9A9" 
+             Name="DisplayAssignments" 
+             HorizontalAlignment="Left" 
+             VerticalAlignment="Top" 
+             Margin="139,98,0,0" 
+             ItemsSource="{Binding Assignments}"
+             Height="232" Width="245">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding Id}" />
+                        <TextBlock Text="{Binding Title}" />
+                        <TextBlock Text="{Binding Description}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Image Source="/Logo - grøn.jpg" Stretch="Fill" Margin="9,0,685,359"/>
+
+        <TextBox Text="{Binding SelectedAssignment.Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+             HorizontalAlignment="Left" 
+             Margin="413,146,0,0" 
+             TextWrapping="Wrap" 
+             VerticalAlignment="Top" 
+             Width="120"/>
+        <TextBox HorizontalAlignment="Left" 
+             Margin="413,117,0,0" 
+             TextWrapping="Wrap" 
+             Text="{Binding SelectedAssignment.Id}" 
+             VerticalAlignment="Top" 
+             Width="120"/>
+        <TextBox x:Name="Update" 
+             HorizontalAlignment="Left" 
+             Margin="414,88,0,0" 
+             Background="#D9A9A9"
+             TextWrapping="Wrap" 
+             Text="Opdater Øvelse" 
+             VerticalAlignment="Top" 
+             Width="120"/>
+
+        <TextBox x:Name ="NewAssignmentTitle" 
+             HorizontalAlignment="Left" 
+             Margin="413,255,0,0" 
+             TextWrapping="Wrap" 
+             Text="{Binding NewAssignmentTitle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+             VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name ="NewAssignmentDescription" 
+            HorizontalAlignment="Left" 
+            Margin="547,256,0,0" 
+            TextWrapping="Wrap" 
+            Text="{Binding NewAssignmentDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            VerticalAlignment="Top" Width="120"/>
+        <Button Background="#D9A9A9" 
+            Content="Opret ny øvelse:" 
+            HorizontalAlignment="Left" 
+            Margin="489,310,0,0" 
+            VerticalAlignment="Top" 
+            Width="96" 
+            Command="{Binding CreateNewSurroundingCommand}"/>
+        <Button x:Name="Delete" 
+            HorizontalAlignment="Left" 
+            Margin="416,57,0,0" 
+            Background="#D9A9A9"
+            Content="Slet øvelse"
+            VerticalAlignment="Top" 
+            Width="120"
+            Command="{Binding DeleteSelectedSurroundngCommand}"/>
+    </Grid>
+</Page>
